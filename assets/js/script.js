@@ -1,3 +1,4 @@
+let [computer_score, user_score] = [0, 0];
 let result_ref = document.getElementById("result");
 let choices_object = {
     'rock' : {
@@ -36,12 +37,19 @@ function checker(input) {
     switch(choices_object[input][computer_choice]) {
         case 'win' :
             result_ref.innerHTML = "YOU WIN";
+            user_score++;
             break;
         case 'lose' :
             result_ref.innerHTML = "YOU LOSE";
+            computer_score++;
             break;
         default:
             result_ref.innerHTML = "DRAW";
-            break;        
+            break;    
     }
+
+    document.getElementById("computer_score").
+    innerHTML = computer_score;
+    document.getElementById("user_score").
+    innerHTML = user_score;
 }
